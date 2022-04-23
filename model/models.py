@@ -229,7 +229,7 @@ def sample_images(imagepath):
                 print("and ground truth image. Notice that PSNR has no sense in original black and white images.")
                 print("")
                 print("")
-        break
+        return (avg_ssim, avg_psnr)
 
     print("average ssim loss =", "{:.8f}".format(avg_ssim / (total_batch * BATCH_SIZE)))
     print("average psnr loss =", "{:.8f}".format(avg_psnr / (total_batch * BATCH_SIZE)))

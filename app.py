@@ -16,7 +16,7 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 ALLOWED_EXTENSIONS = {'jpg', 'jpeg'}
 
 
-def colorize(filepath):
+def colorize_with_cnn(filepath):
     """Takes an image page, loads model and creates prediction image"""
     parser = argparse.ArgumentParser()
     parser.add_argument('-i', '--img_path', type=str, default=filepath)
@@ -30,9 +30,10 @@ def colorize(filepath):
     plt.imsave('static/result.png', postprocess(orig, model(resized).cpu()))
 
 
+
 def predict(imagepath):
     """Takes a valid 64bit image file, preprocessed and returns the final prediction"""
-    colorize(imagepath)
+    colorize_with_cnn(imagepath)
     sample_images(imagepath)
 
 
